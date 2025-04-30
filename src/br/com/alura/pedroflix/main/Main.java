@@ -1,3 +1,5 @@
+package br.com.alura.pedroflix.main;
+
 import br.com.alura.pedroflix.calculators.RecomendationFilter;
 import br.com.alura.pedroflix.calculators.TimeCalculator;
 import br.com.alura.pedroflix.template.Episodes;

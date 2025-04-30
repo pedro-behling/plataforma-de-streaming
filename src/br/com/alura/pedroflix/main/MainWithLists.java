@@ -1,3 +1,5 @@
+package br.com.alura.pedroflix.main;
+
 import br.com.alura.pedroflix.template.Movie;
 import br.com.alura.pedroflix.template.Serie;
 import br.com.alura.pedroflix.template.Title;

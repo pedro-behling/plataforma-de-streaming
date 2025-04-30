@@ -1,26 +1,29 @@
-public class Movie {
-    String movieName;
-    int releaseYear;
-    int duration;
-    boolean planInclused;
-    private double sumOfRatings;
-    private int totalReview;
+package br.com.alura.pedroflix.template;
 
-    int getTotalReview() {
-        return totalReview;
+import br.com.alura.pedroflix.calculators.Rated;
+
+public class Movie extends Title implements Rated {
+    private String director;
+
+    public Movie(String titleName, int releaseYear) {
+        super(titleName, releaseYear);
     }
 
-    void showTechnicalData() {
-        System.out.println("Nome do filme: " + movieName);
-        System.out.println("Ano de lançamento: " + releaseYear);
+    public String getDirector() {
+        return director;
     }
 
-    void setReview(double rating) {
-        sumOfRatings += rating;
-        totalReview++;
+    public String setDirector(String directorName) {
+        return this.director = directorName;
     }
 
-    double averageRating() {
-        return sumOfRatings / totalReview;
+    @Override
+    public int getRating() {
+        return (int) averageRating() / 2;
+    }
+
+    @Override
+    public String toString() {
+        return "Filme: " + this.getTitleName() + "(" + this.getReleaseYear() + ")";
     }
 }
