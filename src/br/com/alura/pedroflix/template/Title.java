@@ -1,11 +1,9 @@
 package br.com.alura.pedroflix.template;
 
-import com.google.gson.annotations.SerializedName;
+import br.com.alura.pedroflix.exceptions.YearConversionError;
 
 public class Title implements Comparable<Title> {
-    @SerializedName("Title")
     private String titleName;
-    @SerializedName("Year")
     private int releaseYear;
     private int duration;
     private boolean planInclused;
@@ -19,6 +17,9 @@ public class Title implements Comparable<Title> {
 
     public Title(TitleOmdb myTitleOmdb) {
         this.titleName = myTitleOmdb.title();
+        if (myTitleOmdb.year().length() > 4) {
+            throw new YearConversionError("Não foi possível converter o ano do título requisitado pois o mesmo contém mais que 4 caracteres");
+        }
         this.releaseYear = Integer.valueOf(myTitleOmdb.year());
         this.duration = Integer.valueOf(myTitleOmdb.runtime().substring(0, 3));
     }
